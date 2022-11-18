@@ -75,7 +75,7 @@ function calcoloPrezzo() {
     let valoreLavoro = document.getElementById("sceltaLavoro").value;
     let hours = document.getElementById("hours").value;
     let prezzofinale = 0;
-    document.getElementById("sceltaLavoro").classList.remove("bg-danger", "text-white");
+    document.getElementById("sceltaLavoro").classList.remove("border", "border-danger", "text-danger");
     if (valoreLavoro == 1) {
         (prezzofinale = prezzoBackend * hours).toFixed(2);
     } else if (valoreLavoro == 2) {
@@ -83,7 +83,7 @@ function calcoloPrezzo() {
     } else if (valoreLavoro == 3) {
         prezzofinale = (prezzoProjectAnalysis * hours).toFixed(2);
     } else {
-        document.getElementById("sceltaLavoro").classList.add("bg-danger", "text-white");
+        document.getElementById("sceltaLavoro").classList.add("border", "border-danger", "text-danger");
     }
     document.getElementById("prezzoFinale").innerHTML = `<b>${calcoloSconto(prezzofinale)}€</b>`;
 }
@@ -95,16 +95,14 @@ function calcoloSconto(value) {
     console.log(scontoInput);
     for (let scontoUtente of arraySconti) {
         if (scontoUtente == scontoInput) {
-            document.getElementById("sconto").classList.remove("bg-danger", "text-white");
-            console.log(arraySconti);
+            document.getElementById("sconto").classList.remove("border", "border-danger", "text-danger");
             arraySconti.splice(arraySconti.indexOf(scontoInput), 1);
-            console.log(arraySconti)
             return value = (value * sconto).toFixed(2);
         }
     } if(scontoInput==""){
         return value;
     }
-    document.getElementById("sconto").classList.add("bg-danger", "text-white");
+    document.getElementById("sconto").classList.add("border", "border-danger", "text-danger");
     alert("Sconto inserito non valido")
     return value;
 }
