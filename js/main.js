@@ -16,41 +16,91 @@ Buon lavoro!
 Super Bonus: Creare una struttura dati adeguata per contenere tutte le informazioni relative ai progetti presenti nella sezione “Portfolio”. Rimuovere quindi le card dal markup nel file html e stamparle in pagina dinamicamente tramite l’utilizzo di JavaScript*/
 
 
+let arraySconti = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
+let sitesPortfolio = [
+    {
+        nome: "Cabin Website",
+        image: "img/portfolio/cabin.png"
+    },
+    {
+        nome: "Cake Website",
+        image: "img/portfolio/cake.png"
+    },
+    {
+        nome: "Circus Website",
+        image: "img/portfolio/circus.png"
+    },
+    {
+        nome: "Game Website",
+        image: "img/portfolio/game.png"
+    },
+    {
+        nome: "Safe Website",
+        image: "img/portfolio/safe.png"
+    },
+    {
+        nome: "Submarine Website",
+        image: "img/portfolio/submarine.png"
+    }
+]
+website_Init_()
 
+//----------------------------------------------Funzioni---------------------------------------
+function website_Init_(){
+    for (let site of sitesPortfolio) {
+    document.getElementById("portfolioContainer").innerHTML += `
+    <div class="col col-md-6 col-lg-4">
+    <div class="card mb-5">
+    <img src=${site.image} alt="Cake picture">
+    <div class="card-body">
+    <p class="fs-3">Cake Website</p>
+    <p class="card-text">${site.nome}</p>
+    <a href="#" class="btn btn-primary me-3">Preview</a>
+    <a href="#" class="btn border-info text-info">Visit site</a>
+    `
+}
+}
 
-
-
-
-function functiontest(event){
+function submitFunction(event) {
     event.preventDefault();
     calcoloPrezzo();
 
 }
 
-function calcoloPrezzo(){
-
-let prezzoBackend=20.50;
-let prezzoFrontEnd=15.30;
-let prezzoProjectAnalysis=33.60;
-let valoreLavoro= document.getElementById("sceltaLavoro").value;
-let hours=document.getElementById("hours").value;
-let prezzofinale=0;
-if(valoreLavoro==1){
-    (prezzofinale=prezzoBackend*hours).toFixed(2);
-}else if(valoreLavoro==2){
-    prezzofinale=(prezzoFrontEnd*hours).toFixed(2);
-}else if(valoreLavoro==3){
-    prezzofinale=(prezzoProjectAnalysis*hours).toFixed(2);
-}else{
-    document.getElementById("sceltaLavoro").classList.add("bg-danger","text-white");
+function calcoloPrezzo() {
+    let prezzoBackend = 20.50;
+    let prezzoFrontEnd = 15.30;
+    let prezzoProjectAnalysis = 33.60;
+    let valoreLavoro = document.getElementById("sceltaLavoro").value;
+    let hours = document.getElementById("hours").value;
+    let prezzofinale = 0;
+    document.getElementById("sceltaLavoro").classList.remove("bg-danger", "text-white");
+    if (valoreLavoro == 1) {
+        (prezzofinale = prezzoBackend * hours).toFixed(2);
+    } else if (valoreLavoro == 2) {
+        prezzofinale = (prezzoFrontEnd * hours).toFixed(2);
+    } else if (valoreLavoro == 3) {
+        prezzofinale = (prezzoProjectAnalysis * hours).toFixed(2);
+    } else {
+        document.getElementById("sceltaLavoro").classList.add("bg-danger", "text-white");
+    }
+    document.getElementById("prezzoFinale").innerHTML = calcoloSconto(prezzofinale);
 }
-document.getElementById("prezzoFinale").innerHTML=prezzofinale;
-calcoloSconto(prezzofinale);
-}
 
 
-function calcoloSconto(value){
-    let arraySconti=["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
-    
+function calcoloSconto(value) {
+    let sconto = 0.75;
+    let scontoInput = document.getElementById("sconto").value;
+    console.log(scontoInput);
+    for (let scontoUtente of arraySconti) {
+        if (scontoUtente == scontoInput) {
+            document.getElementById("sconto").classList.remove("bg-danger", "text-white");
+            console.log(arraySconti);
+            arraySconti.splice(arraySconti.indexOf(scontoInput), 1);
+            console.log(arraySconti)
+            return value = (value * sconto).toFixed(2);
+        }
+    } document.getElementById("sconto").classList.add("bg-danger", "text-white");
+    return value;
 }
