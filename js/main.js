@@ -85,7 +85,7 @@ function calcoloPrezzo() {
     } else {
         document.getElementById("sceltaLavoro").classList.add("bg-danger", "text-white");
     }
-    document.getElementById("prezzoFinale").innerHTML = calcoloSconto(prezzofinale);
+    document.getElementById("prezzoFinale").innerHTML = `<b>${calcoloSconto(prezzofinale)}€</b>`;
 }
 
 
