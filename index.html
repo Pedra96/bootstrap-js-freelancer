@@ -60,23 +60,23 @@
                 <form onsubmit="submitFunction(event)" class="row justify-content-center pt-2 m-5")>
                     <div class="col-lg-6">
                         <label class="form-label">First name</label>
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">Last name</label>
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                        <label class="form-label">Last name*</label>
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="emailaddress" placeholder="name@example.com">
+                        <label class="form-label">Email address*</label>
+                        <input type="email" class="form-control" id="emailaddress" placeholder="name@example.com" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">Hours Requested</label>
+                        <label class="form-label">Hours Requested*</label>
                         <input type="number" class="form-control" placeholder="How many hours"
-                            aria-label="How many hours" id="hours">
+                            aria-label="How many hours" id="hours" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">Type of work</label>
+                        <label class="form-label">Type of work*</label>
                         <select class="form-select " aria-label="Default select example" id="sceltaLavoro">
                             <option selected>Select type of work</option>
                             <option value="1">Backed Development</option>
@@ -97,10 +97,13 @@
                     <div class="col mt-4 mb-4  text-center">
                         <button type="submit" class="btn btn-warning align-self-center">Send</button>
                     </div>
+                    <p class="fs-5 ">All the camps with * must be completed before sending your job.</p>
+                    <p class="fs-5">
+                        Your total price is: <span id="prezzoFinale"><b>153.75€</b></span>
+                    </p>
                 </form>
-                <p class="fs-5">
-                    Your total price is: <span id="prezzoFinale"><b>153.75€</b></span>
-                </p>
+                
+               
 
             </div>
 

@@ -84,6 +84,7 @@ function calcoloPrezzo() {
         prezzofinale = (prezzoProjectAnalysis * hours).toFixed(2);
     } else {
         document.getElementById("sceltaLavoro").classList.add("border", "border-danger", "text-danger");
+        return;
     }
     document.getElementById("prezzoFinale").innerHTML = `<b>${calcoloSconto(prezzofinale)}€</b>`;
 }
