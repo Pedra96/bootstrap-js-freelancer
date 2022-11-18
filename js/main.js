@@ -6,7 +6,7 @@ Se la commissione riguarda l’analisi progettuale di un progetto il prezzo orar
 Se poi l’utente inserisce un codice promozionale tra i seguenti YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24, fate in modo che l’utente abbia diritto ad uno sconto del 25% sul prezzo finale.
 Se il codice inserito non è valido, informate l’utente che il codice è sbagliato e calcolate il prezzo finale senza applicare sconti.
 Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in un apposito tag HTML appena sotto il bottone send.
-- Ricordatevi che se non state bene attenti, Javascript vi fa le magie con i tipi :faccia_leggermente_sorridente:
+- Ricordatevi che se non state bene attenti, Javascript vi fa le magie con i tipi
 - Ricordatevi che il form ha un comportamento “strano” quando fate click sul bottone Send che è di tipo submit (type=submit).
 CONSIDERAZIONI FINALI e BONUS:
 Mentre come bonus javascript dovete far diventare il codice sconto inserito di colore rosso, qualora quello inserito non sia valido.
@@ -24,5 +24,33 @@ Super Bonus: Creare una struttura dati adeguata per contenere tutte le informazi
 
 function functiontest(event){
     event.preventDefault();
-    let nome
+    calcoloPrezzo();
+
+}
+
+function calcoloPrezzo(){
+
+let prezzoBackend=20.50;
+let prezzoFrontEnd=15.30;
+let prezzoProjectAnalysis=33.60;
+let valoreLavoro= document.getElementById("sceltaLavoro").value;
+let hours=document.getElementById("hours").value;
+let prezzofinale=0;
+if(valoreLavoro==1){
+    (prezzofinale=prezzoBackend*hours).toFixed(2);
+}else if(valoreLavoro==2){
+    prezzofinale=(prezzoFrontEnd*hours).toFixed(2);
+}else if(valoreLavoro==3){
+    prezzofinale=(prezzoProjectAnalysis*hours).toFixed(2);
+}else{
+    document.getElementById("sceltaLavoro").classList.add("bg-danger","text-white");
+}
+document.getElementById("prezzoFinale").innerHTML=prezzofinale;
+calcoloSconto(prezzofinale);
+}
+
+
+function calcoloSconto(value){
+    let arraySconti=["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
+    
 }

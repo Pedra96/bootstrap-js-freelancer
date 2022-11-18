@@ -142,7 +142,7 @@
         <div class="container-fluid bg-info pb-3">
             <div >
                 <p class="fs-3 text-center ">WANT AN OFFER</p>
-                <form onsubmit(functiontest(event) class="row justify-content-center pt-2 m-5")>
+                <form onsubmit="functiontest(event)" class="row justify-content-center pt-2 m-5")>
                     <div class="col-lg-6">
                         <label class="form-label">First name</label>
                         <input type="text" class="form-control" placeholder="First name" aria-label="First name">
@@ -158,11 +158,11 @@
                     <div class="col-lg-6">
                         <label class="form-label">Hours Requested</label>
                         <input type="number" class="form-control" placeholder="How many hours"
-                            aria-label="How many hours">
+                            aria-label="How many hours" id="hours">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label">Type of work</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select " aria-label="Default select example" id="sceltaLavoro">
                             <option selected>Select type of work</option>
                             <option value="1">Backed Development</option>
                             <option value="2">Frontend Development</option>
@@ -170,8 +170,8 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">Discount code</label>
-                        <input type="text" class="form-control" placeholder="Inser your discount code"
+                        <label class="form-label" >Discount code</label>
+                        <input type="text" id="sconto" class="form-control" placeholder="Inser your discount code"
                             aria-label="Inser your discount code">
                     </div>
                     <div class="col-lg-12">
@@ -184,7 +184,7 @@
                     </div>
                 </form>
                 <p class="fs-5">
-                    Your total price is: <b>153.75€</b>
+                    Your total price is: <span id="prezzoFinale"><b>153.75€</b></span>
                 </p>
 
             </div>
