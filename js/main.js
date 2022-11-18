@@ -101,6 +101,10 @@ function calcoloSconto(value) {
             console.log(arraySconti)
             return value = (value * sconto).toFixed(2);
         }
-    } document.getElementById("sconto").classList.add("bg-danger", "text-white");
+    } if(scontoInput==""){
+        return value;
+    }
+    document.getElementById("sconto").classList.add("bg-danger", "text-white");
+    alert("Sconto inserito non valido")
     return value;
 }
